@@ -1,0 +1,36 @@
+% This file was created by matplotlib2tikz v0.5.7.
+% The lastest updates can be retrieved from
+% 
+% https://github.com/nschloe/matplotlib2tikz
+% 
+% where you can also submit bug reports and leavecomments.
+% 
+\begin{tikzpicture}
+
+\begin{axis}[
+xlabel={Iterations $[n]$},
+ylabel={Value of $\sum_{0}^n2^nA_n$ },
+xmin=0, xmax=9,
+ymin=2, ymax=3.2,
+axis on top,
+width=18cm,
+height=5cm,
+xmajorgrids,
+ymajorgrids
+]
+\addplot [blue, mark=*, mark size=3, mark options={dashed,draw=black}, only marks]
+table {%
+1 2
+2 2.82842712474619
+3 3.06146745892072
+4 3.12144515225805
+5 3.13654849054594
+6 3.14033115695475
+7 3.14127725093277
+8 3.1415138011443
+9 3.14157294036709
+10 3.14158772527716
+};
+\end{axis}
+
+\end{tikzpicture}

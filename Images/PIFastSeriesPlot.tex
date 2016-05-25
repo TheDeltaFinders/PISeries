@@ -1,0 +1,36 @@
+% This file was created by matplotlib2tikz v0.5.7.
+% The lastest updates can be retrieved from
+% 
+% https://github.com/nschloe/matplotlib2tikz
+% 
+% where you can also submit bug reports and leavecomments.
+% 
+\begin{tikzpicture}
+
+\begin{axis}[
+xlabel={Iterations $[n]$},
+ylabel={Value of $\pi$ },
+xmin=0, xmax=9,
+ymin=3.133, ymax=3.142,
+axis on top,
+width=18cm,
+height=6cm,
+xmajorgrids,
+ymajorgrids
+]
+\addplot [blue, mark=*, mark size=3, mark options={solid,draw=black}, only marks]
+table {%
+0 3.13333333333333
+1 3.14142246642247
+2 3.14158739034658
+3 3.14159245756744
+4 3.14159264546034
+5 3.14159265322809
+6 3.14159265357288
+7 3.14159265358897
+8 3.14159265358975
+9 3.14159265358979
+};
+\end{axis}
+
+\end{tikzpicture}
