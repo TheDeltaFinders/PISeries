@@ -1,4 +1,4 @@
-\documentclass{jpconf}
+\documentclass{IEEEtran}
 \usepackage[utf8]{inputenc}
 \usepackage{fontspec}
 \usepackage{DFormat}
@@ -43,7 +43,8 @@
 
 \begin{document}
 	\stTitle{A simple geometrical series that converges to $\pi$}
-	\stConfTitle 
+	\stMakeTitle
+	%\stConfTitle 
 \begin{abstract}
 This paper describes one of many possible ways to calculate the value of $\pi$ with a geometrical series. This method will be particulary useful to calculate the value of $\pi$ with iterative approach taking terms as per the required precision.
 \end{abstract}
@@ -55,12 +56,12 @@ $\pi$ comes flying all over high school mathematics. Beginner studensts often co
 
 \section{Historical Note}
 Intuitively we can also guess that if we make bigger and bigger circle both diameter and circumference increase. It makes us wonder if there is a certain relation between the diameter and circumference of circle. Curious Babylonians in the early ages, out of similar curiosity, tried to measure the ratio of circumference to diameter. Unsurprisingly they found the ratio was close to $3$. For various observations they found this ratio was always closer to 3, little greater than 3 and never larger than 4. They didn't precisely know the value of the ratio. So they named the ratio a magical symbol, which is $\pi$.
-\section{Random }
-Some random sentences to begin the section formally.
+\section{Main Idea}
+The main idea behind calculating the value of $\pi$ is calculating the area of circle whose area is numerically equal to $\pi$. To formally calculate the value of $\pi$ we begin with definition of $\pi$.
 \begin{Definition}
 	\emph{ $\pi$ is the ratio of circumference to diameter of a circle. i.e., $\pi = \frac{C}{d}$, where $C$ is the circumference, $d$ is the diameter of circle}
 \end{Definition}
-Using this definition of circumference of circle, it is not hard to work out the area of circle. As it turns out the area of circle in terms of the named constant comes out to be \footnote{The derivation of $A = \pi r^2$ is given in Appendix A}\[ A = \pi r^2 \]
+Using this definition of circumference of circle, it is not hard to work out the area of circle. As it turns out the area of circle in terms of the named constant comes out to be \footnote{The derivation of $A = \pi r^2$ is given in Appendix. \ref{apx:AreaOfCircle} } \[ A = \pi r^2 \]
 So far we don't know what is the value of number denoted by $\pi$. If we take a circle of unit radius, i.e., $r = 1$ then the area of circle turns, numerically, out to be $\pi$. We now calculate the area of unit circle geometrically. The area we calculate will, numerically, be the value of $\pi$ which we all are looking for in this paper.
 			
 \section{Area of unit circle}
@@ -68,22 +69,24 @@ So far we don't know what is the value of number denoted by $\pi$. If we take a 
 
 \begin{figure}
 	\centering
-	\begin{subfigure}[b]{0.30\textwidth}
+	\def\f{0.4}
+	\def\por{0.25}
+	\begin{subfigure}[b]{\por \textwidth}
 		\centering
-		\scalebox{0.8}{\input{./Images/A_0.tex}}
+		\scalebox{\f}{\input{./Images/A_0.tex}}
 		\caption{Area of first triangle}
 		\label{fig:a_0}
 	\end{subfigure}%
-	\begin{subfigure}[b]{0.30\textwidth}
+	\begin{subfigure}[b]{\por \textwidth}
 		\centering
-		\scalebox{0.8}{\input{./Images/A_1.tex}}
+		\scalebox{\f}{\input{./Images/A_1.tex}}
 		\caption{Area of second triangle}
 		\label{fig:a_1}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.30\textwidth}
+	\begin{subfigure}[b]{\por \textwidth}
 		\centering
-		\scalebox{0.8}{\input{./Images/A_2.tex}}
-		\caption{Area of second triangle}
+		\scalebox{\f}{\input{./Images/A_2.tex}}
+		\caption{Area of third triangle}
 		\label{fig:a_2}
 	\end{subfigure}
 	\caption{First two areas of the series in calculation of Area}
@@ -91,15 +94,15 @@ So far we don't know what is the value of number denoted by $\pi$. If we take a 
 
 We use our knowledge of calculating the area of triangle to calculate the area of circle by dividing the circle . Lets divide the circle into four quarters. In Figure.(\ref{fig:a_0}), we can approximate the area oc sector $OAB$ (say $S$) with the area of right triangle $\Delta OAB$. The are of $\Delta OAB$ is given simply by 
 \[\text{Area of } \Delta OAB\, (A_0) = \frac{1}{2}OA \times OB = \frac{1}{2} \text{units} \]
-In first approximation the area of sector $S $ is simply the area of triangle $\Delta OAB$, i.e., \[S_0 \approx A_0 = \Delta OAB\]
+In first approximation the area of sector $S $ is simply the area of triangle $\Delta OAB$, i.e., \[S_0 = A_0 = \Delta OAB\]
 But we know this is a very crude approximation for the area of sector. We can improve this approximation. For that let us construct a line $OC$ through $O$ and the midpoint $D$ of $AB$ meeting the perimeter of circle at $C$. The approximation to the area of sector $OAB$ can now be improved by adding the area of two smaller triangles $\Delta DAC$ and $\Delta DBC$ which are equal in area (say $A_1$). The improved approximation to $S$  can be 
 \begin{eqnarray}
-S_1 &\approx& \Delta OAB + \Delta ADC + \Delta BDC \nonumber \\
+    S_1 & = & \Delta OAB + \Delta ADC + \Delta BDC \nonumber \\
 &=& A_0 + 2A_1 \nonumber
 \end{eqnarray}
-Similary, the approximation to the area can be improved by adding area of triangles in the gap left between the triangle and the circle further.
+Similarly, the approximation to the area can be improved by adding area of triangles in the gap left between the triangle and the circle further.
 \begin{eqnarray}
-S_2&\approx& A_0 + 2A_1+4A_2 \nonumber
+S_2& = & A_0 + 2A_1+4A_2 \nonumber
 \end{eqnarray}
 Where $A_2$ is the area of triangle $BDC$.
 
@@ -119,7 +122,10 @@ h_0 (AB) &=& \sqrt{p_0^2+b_0^2} \nonumber
 Thus the area of $\Delta OAB (A_0) = \frac{1}{2}p_0 \times b_0 = \frac{1}{2}$. In $\Delta ACD$ in Figure.\ref{fig:a_1},
 
 \begin{equation}
-p_1 (CD) = OC - CD = 1 - \sqrt{OB^2 - DB^2}  =   1 - \sqrt{1 - \left(\frac{AD}{2}\right)^2} = 1 - \sqrt{1 - \left(\frac{h_0}{2}\right)^2} \nonumber
+p_1 (CD) = OC - CD = 1 - \sqrt{OB^2 - DB^2} 
+\end{equation}
+\begin{equation}
+ =   1 - \sqrt{1 - \left(\frac{AD}{2}\right)^2} = 1 - \sqrt{1 - \left(\frac{h_0}{2}\right)^2} \nonumber
 \end{equation}
 \begin{equation}
 b_1 (AD) = \frac{AB}{2} =  \frac{h_0}{2} \qquad 
@@ -156,8 +162,23 @@ Value of $\pi$ thus can be calculated with the beautiful series without much has
 
 \section{Conclusion}
 We have constructed one series that is very intuitively easy to get to and converges very fast to the value of $\pi$. We have calculated the numerical value of the series which is $3.14159...$ \cite{fat}.
+\appendix
+\setcounter{section}{1}
+\section{Area of Circle} \label{apx:AreaOfCircle}
+Let us take a circle of radius r. Suppose there is an infinitesimal ring at a distance $o <x<r$ from the center of the circle of width $dx$. The area of the infinitesimal ring can be calculated as 
+\begin{equation} \label{eq:infarea}
+	\mathrm{d}A = C\mathrm{d}x 
+\end{equation}
 
-\section*{References}
+Where $C$ is the circumference of the infinitesimal ring of radius $x$. By definition of the circumference of the circle we get $C = 2 \pi x$. Substituting the value of $C$ in Equation. \ref{eq:infarea} we get
+
+\begin{eqnarray} \label{eq:area}
+	A = \int_0^r \mathrm{d}A &=& \int_0^r C\mathrm{d}x  \nonumber \\
+	& = & \int_0^r 2\pi x \mathrm{d}x \nonumber \\
+	& = & 2\pi \left[ \frac{x^2}{2}\right]_0^r \nonumber \\
+	& = & \pi r^2
+\end{eqnarray}
+
 \begin{thebibliography}{99}
 	\bibitem{fat}
 		H. Madhav and G. Prakash, The Delta Finders. The Delta Research Press (2016)
